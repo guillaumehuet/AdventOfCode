@@ -1,5 +1,5 @@
 def readInput(file):
-  return [372304, 847060]
+  return [int(n) for n in open(file).read().splitlines()[0].split('-')]
 
 def hasDoubleDigits(digits):
   for d in range(len(digits) - 1):

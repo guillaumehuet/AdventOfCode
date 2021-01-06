@@ -58,7 +58,6 @@ def secondStar(input):
   maxY = max(allY) - minY
   workingInput = [[c[0] - minX, c[1] - minY] for c in workingInput]
   grid = [[0 for _ in range(maxX + 1)] for _ in range(maxY + 1)]
-  infiniteSectors = set()
   for x in range(maxX + 1):
     for y in range(maxY + 1):
       distance = sum([manhattan((x,y), place) for place in workingInput])

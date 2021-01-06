@@ -1,5 +1,8 @@
 gridSize = 300
 
+def readInput(file):
+  return int(open(file).read().splitlines()[0])
+
 def firstStar(input):
   grid = inputToGrid(input)
   return str(maxCell(grid, 3)[0][:2])[1:-1].replace(' ', '')
@@ -49,7 +52,7 @@ def maxCell(grid, size):
         maxValue = value
   return maxIndex, maxValue
 
-input = 6878
+input = readInput('input')
 
 print("The first star is : {}".format(firstStar(input)))
 # The first star is : 20,34
