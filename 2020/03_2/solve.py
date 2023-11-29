@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [[True if c == '#' else False for c in line] for line in open(file).read().splitlines()]
+  return [[True if c == '#' else False for c in line] for line in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def numTreesOnSlope(x_step, y_step, input):
   result = 0

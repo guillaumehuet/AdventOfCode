@@ -1,8 +1,8 @@
-import sys
+from pathlib import Path
 
 def readInput(file):
   clayLines = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     line = [l.split('=') for l in line.split(', ')]
     first = int(line[0][1])
     secondMin, secondMax = [int(c) for c in line[1][1].split('..')]

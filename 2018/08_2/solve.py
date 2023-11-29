@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(c) for c in open(file).read().splitlines()[0].split()]
+  return [int(c) for c in Path(__file__).with_name(file).open('r').read().splitlines()[0].split()]
 
 def firstStar(input):
   return nestedSum(processChild(input, 0)[1])

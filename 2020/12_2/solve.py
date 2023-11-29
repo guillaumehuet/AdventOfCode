@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return open(file).read().splitlines()
+  return Path(__file__).with_name(file).open('r').read().splitlines()
 
 directions = ['E', 'S', 'W', 'N']
 unitVectors = {'E':(1, 0), 'S':(0, -1), 'W':(-1, 0), 'N':(0, 1)}

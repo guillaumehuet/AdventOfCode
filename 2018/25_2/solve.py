@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return tuple(tuple(int(coord) for coord in line.split(',')) for line in open(file).read().splitlines())
+  return tuple(tuple(int(coord) for coord in line.split(',')) for line in Path(__file__).with_name(file).open('r').read().splitlines())
 
 def distance(aPoint, bPoint):
   return sum(abs(aPoint[i] - bPoint[i]) for i in range(len(aPoint)))

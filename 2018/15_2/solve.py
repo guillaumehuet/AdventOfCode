@@ -1,10 +1,11 @@
+from pathlib import Path
 from copy import deepcopy
 
 def readInput(file):
   terrain = []
   monsters = dict()
   y = 0
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     x = 0
     terrain.append([])
     for c in line:

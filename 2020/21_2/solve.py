@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   result = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     ingredients, allergens = line.split(' (contains ')
     ingredients = tuple(ingredients.split())
     allergens = tuple(allergens[:-1].split(', '))

@@ -1,3 +1,4 @@
+from pathlib import Path
 
 def reversedFunction():
   d = 0
@@ -10,7 +11,7 @@ def reversedFunction():
     yield d
 
 def readInput(file):
-  return open(file).read().splitlines()
+  return Path(__file__).with_name(file).open('r').read().splitlines()
 
 def firstStar(input):
   return next(reversedFunction())

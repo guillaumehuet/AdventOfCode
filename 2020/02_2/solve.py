@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   result = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     repeats, letter, password = line.split()
     repeats = [int(n) for n in repeats.split('-')]
     letter = letter[0]

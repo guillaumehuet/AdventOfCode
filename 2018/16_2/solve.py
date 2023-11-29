@@ -1,8 +1,10 @@
+from pathlib import Path
+
 def readInput(file):
   tests = []
   instructions = []
   isTest = False
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if len(line) == 0:
       continue
     elif line[0] == 'B':

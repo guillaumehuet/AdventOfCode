@@ -1,3 +1,4 @@
+from pathlib import Path
 from collections import deque
 from itertools import islice
 
@@ -5,7 +6,7 @@ def readInput(file):
   deck1 = deque()
   deck2 = deque()
   currDeck = deck1
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if 'Player 2' in line:
       currDeck = deck2
     elif line.isnumeric():

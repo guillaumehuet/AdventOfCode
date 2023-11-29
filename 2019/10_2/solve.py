@@ -1,7 +1,8 @@
+from pathlib import Path
 from math import gcd, atan2
 
 def readInput(file):
-  return [[1 if c == '#' else 0 for c in line] for line in open(file).read().splitlines()]
+  return [[1 if c == '#' else 0 for c in line] for line in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def arrayToCoords(array):
   result = []

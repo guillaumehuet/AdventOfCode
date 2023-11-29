@@ -1,7 +1,8 @@
+from pathlib import Path
 import heapq
 
 def readInput(file):
-  values = tuple(l.split(':')[1][1:] for l in open(file).read().splitlines())
+  values = tuple(l.split(':')[1][1:] for l in Path(__file__).with_name(file).open('r').read().splitlines())
   depth = int(values[0])
   target = tuple(int(i) for i in values[1].split(','))
   return depth, target

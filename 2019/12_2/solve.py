@@ -1,3 +1,4 @@
+from pathlib import Path
 from copy import deepcopy
 from math import gcd
 
@@ -6,7 +7,7 @@ def lcm(a, b):
 
 def readInput(file):
   result = []
-  for l in open(file).read().splitlines():
+  for l in Path(__file__).with_name(file).open('r').read().splitlines():
     result.append([tuple(int(c.split("=")[1].replace('>', '')) for c in l.split(",")), (0,0,0)])
   return tuple(result)
 

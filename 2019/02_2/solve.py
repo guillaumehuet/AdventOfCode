@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(op) for op in open(file).read().split(',')]
+  return [int(op) for op in Path(__file__).with_name(file).open('r').read().split(',')]
 
 def runProgram(noun, verb, program):
   program[1] = noun

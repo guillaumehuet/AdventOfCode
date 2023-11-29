@@ -1,7 +1,9 @@
+from pathlib import Path
+
 def readInput(file):
   categories = dict()
   tickets = []
-  lines = iter(open(file).read().splitlines())
+  lines = iter(Path(__file__).with_name(file).open('r').read().splitlines())
   for line in lines:
     if line == '':
       break

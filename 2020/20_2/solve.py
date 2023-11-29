@@ -1,8 +1,10 @@
+from pathlib import Path
+
 def readInput(file):
   tileset = dict()
   currentTile = []
   currentTileNumber = -1
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if 'Tile' in line:
       if currentTileNumber != -1:
         tileset[currentTileNumber] = tuple(currentTile)

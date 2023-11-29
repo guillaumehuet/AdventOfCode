@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return sorted([int(n) for n in open(file).read().splitlines()])
+  return sorted([int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()])
 
 def firstStar(input):
   diff1 = 0

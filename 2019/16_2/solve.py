@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(c) for c in open(file).read().splitlines()[0]]
+  return [int(c) for c in Path(__file__).with_name(file).open('r').read().splitlines()[0]]
 
 def singleDigit(n):
   return abs(n) % 10

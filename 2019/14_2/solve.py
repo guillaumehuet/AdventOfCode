@@ -1,3 +1,4 @@
+from pathlib import Path
 from math import ceil
 from collections import defaultdict
 
@@ -11,7 +12,7 @@ def tryInt(string):
 
 def readInput(file):
   result = dict()
-  for line in  open(file).read().splitlines():
+  for line in  Path(__file__).with_name(file).open('r').read().splitlines():
     reaction = line.split("=>")
     inputChems = tuple(tuple(tryInt(s) for s in c.split(' ') if s) for c in reaction[0].split(','))
     outputChem = tuple(tryInt(s) for s in reaction[1].split(' ') if s)

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 def egcd(a, b):
     if a == 0:
         return (b, 0, 1)
@@ -14,7 +16,7 @@ def modinv(a, m):
 
 def readInput(file):
   shuffleSteps = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     step = line.split()
     if step[0] == "cut":
       shuffleSteps.append(('c', int(step[1])))

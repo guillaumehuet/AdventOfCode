@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(n) for n in open(file).read().splitlines()]
+  return [int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def firstErrNumber(nList, preambleLen):
   for i in range(preambleLen, len(nList)):

@@ -1,3 +1,8 @@
+from pathlib import Path
+
+def readInput(file):
+  return Path(__file__).with_name(file).open('r').read().splitlines()[0]
+
 def initRecipes():
   # [recipesList, firstElfPtr, secondElfPtr]
   return [[3, 7], 0, 1]
@@ -44,7 +49,7 @@ def secondStar(input):
     return len(recipes[0]) - lenRecipes
   return len(recipes[0]) - lenRecipes - 1
 
-input = '077201'
+input = readInput('input')
 
 print("The first star is : {}".format(firstStar(input)))
 # The first star is : 9211134315

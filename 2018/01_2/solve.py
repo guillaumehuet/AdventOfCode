@@ -1,7 +1,8 @@
+from pathlib import Path
 from itertools import cycle
 
 def readInput(file):
-  return [int(n) for n in open(file).read().splitlines()]
+  return [int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def firstStar(input):
   return sum(input)

@@ -1,8 +1,9 @@
+from pathlib import Path
 import heapq
 
 def readInput(file):
   result = dict()
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     color, content = line.split(' bags contain ')
     result[color] = set()
     if content != 'no other bags.':

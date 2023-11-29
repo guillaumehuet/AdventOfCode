@@ -1,3 +1,5 @@
+from pathlib import Path
+
 def egcd(a, b):
     if a == 0:
         return (b, 0, 1)
@@ -13,7 +15,7 @@ def modinv(a, m):
         return x % m
 
 def readInput(file):
-  timestamp, buses = open(file).read().splitlines()
+  timestamp, buses = Path(__file__).with_name(file).open('r').read().splitlines()
   timestamp = int(timestamp)
   buses = tuple(int(b) if b != 'x' else 0 for b in buses.split(','))
   return timestamp, buses

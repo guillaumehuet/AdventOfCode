@@ -1,7 +1,8 @@
+from pathlib import Path
 from collections import Counter
 
 def readInput(file):
-  return open(file).read().splitlines()
+  return Path(__file__).with_name(file).open('r').read().splitlines()
 
 def firstStar(input):
   n2 = 0

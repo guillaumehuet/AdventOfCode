@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [wirePath.split(',') for wirePath in open(file).read().splitlines()]
+  return [wirePath.split(',') for wirePath in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def calculateCrossings(input):
   wirePaths = []

@@ -1,3 +1,4 @@
+from pathlib import Path
 from itertools import chain
 
 class Node:
@@ -70,7 +71,7 @@ class LinkedList():
     return result
 
 def readInput(file):
-  return tuple(int(n) for n in open(file).read().splitlines()[0])
+  return tuple(int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()[0])
 
 def firstStar(input):
   circle = LinkedList(input)
