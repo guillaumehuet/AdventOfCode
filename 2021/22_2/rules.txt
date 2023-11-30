@@ -105,8 +105,6 @@ Execute the reboot steps. Afterward, considering only cubes in the region x=-50.
 
 Your puzzle answer was 596989.
 
-The first half of this puzzle is complete! It provides one gold star: *
-
 --- Part Two ---
 Now that the initialization procedure is complete, you can reboot the reactor.
 
@@ -178,7 +176,10 @@ After running the above reboot steps, 2758514936282235 cubes are on. (Just for f
 
 Starting again with all cubes off, execute all reboot steps. Afterward, considering all cubes, how many cubes are on?
 
-Answer: 
- 
+Your puzzle answer was 1160011199157381.
 
-Although it hasn't changed, you can still get your puzzle input.
+Both parts of this puzzle are complete! They provide two gold stars: **
+
+At this point, you should return to your Advent calendar and try another puzzle.
+
+If you still want to see it, you can get your puzzle input.
