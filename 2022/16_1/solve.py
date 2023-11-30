@@ -1,8 +1,9 @@
+from pathlib import Path
 from bisect import insort
 
 def readInput(file):
   result = dict()
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     line = line.split()
     valve = line[1]
     flowRate = line[4]
@@ -67,29 +68,7 @@ def firstStar(input):
   return result
 
 def secondStar(input):
-  result = 0
-  paths, targets = inputToPathsTargets(input)
-  totalTime = 26
-  pressure = 0
-  time = 0
-  valves = ('AA', 'AA')
-  openValves = frozenset()
-  valveOrder = tuple()
-  boundary = []
-  for nextValve in paths[valve]:
-    nextTime = nextValve[1] + 1 + time
-    insort(boundary, (pressure + targets[nextValve[0]]*(totalTime - nextTime), nextTime, nextValve[0], openValves | {nextValve[0]}, valveOrder + ((nextValve[0], nextTime), )))
-  while boundary:
-    pressure, time, valve, openValves, valveOrder = boundary.pop()
-    if len(openValves) == len(targets) or time > 30:
-      result = max(result, pressure)
-      continue
-    for nextValve in paths[valve]:
-      if nextValve[0] not in openValves:
-        nextTime = nextValve[1] + 1 + time
-        newPressure = max(pressure, pressure + targets[nextValve[0]]*(totalTime - nextTime))
-        insort(boundary, (newPressure, nextTime, nextValve[0], openValves | {nextValve[0]}, valveOrder + ((nextValve[0], nextTime), )))
-  return result
+  pass
 
 input = readInput('input')
 

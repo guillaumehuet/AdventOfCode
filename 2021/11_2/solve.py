@@ -1,7 +1,8 @@
+from pathlib import Path
 from copy import deepcopy
 
 def readInput(file):
-  return [[int(n) for n in line] for line in open(file).read().splitlines()]
+  return [[int(n) for n in line] for line in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def neighboors(x, y, xmax, ymax):
   allneighboors = ((x - 1, y - 1), (x, y - 1), (x + 1, y - 1), (x - 1, y), (x + 1, y), (x - 1, y + 1), (x, y + 1), (x + 1, y + 1))

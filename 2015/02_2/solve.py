@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return tuple(tuple(sorted(int(n) for n in line.split('x'))) for line in open(file).read().splitlines())
+  return tuple(tuple(sorted(int(n) for n in line.split('x'))) for line in Path(__file__).with_name(file).open('r').read().splitlines())
 
 def neededPaper(w, h, l):
   return 3*w*h + 2*w*l + 2*h*l

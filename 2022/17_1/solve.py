@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   result = []
-  for c in open(file).read().splitlines()[0]:
+  for c in Path(__file__).with_name(file).open('r').read().splitlines()[0]:
     # Right push correspond to True, left to False
     result.append(c == '>')
   return tuple(result)
@@ -137,8 +139,7 @@ def firstStar(input):
   return simulateChamber(input, 2022)
 
 def secondStar(input):
-  rocksRepeat, repeatSize = simulateChamber(input, 0, True)
-  return rocksRepeat, repeatSize
+  pass
 
 input = readInput('input')
 

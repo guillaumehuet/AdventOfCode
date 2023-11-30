@@ -1,8 +1,10 @@
+from pathlib import Path
+
 secondStarResult = 0
 
 def readInput(file):
   beacons = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if 'scanner' in line:
       beacons.append([])
     elif line != '':
@@ -47,7 +49,8 @@ def firstStar(input):
   rotated = [0]
   deltas = {0: (0, 0, 0)}
   while len(rotated) < len(input):
-    for (i, j) in commons:
+    # TODO : Investigate RuntimeError: dictionary keys changed during iteration
+    for (i, j) in list(commons):
       if j in rotated and i not in rotated:
         commons[(j, i)] = [(nJ, nI) for (nI, nJ) in commons[(i, j)]]
         del commons[(i, j)]

@@ -5,8 +5,9 @@ currYear = str(date.today().year)
 inputYear = input("What year folder hierarchy do you want to initialize ({}) ? ".format(currYear)) or currYear
 yearPath = Path(__file__).with_name(inputYear)
 
-if yearPath.exists() and (input("Folder {} exists, are you sure you want to overwrite it and all its subfolders (Y/N) ?".format(yearPath)) not in ("y","Y")):
-    exit()
+if yearPath.exists():
+  print("Folder {} exists, folder hierarchy not initialized to avoid overwriting.".format(yearPath))
+  exit()
 
 yearPath.mkdir()
 

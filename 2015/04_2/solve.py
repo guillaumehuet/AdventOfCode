@@ -1,7 +1,8 @@
+from pathlib import Path
 from hashlib import md5
 
 def readInput(file):
-  return open(file).read().splitlines()[0]
+  return Path(__file__).with_name(file).open('r').read().splitlines()[0]
 
 def findHashWithNZeroes(key, n):
   i = 0

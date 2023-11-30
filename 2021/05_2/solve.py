@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   result = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     start, end = line.split(' -> ')
     start = tuple(int(n) for n in start.split(','))
     end = tuple(int(n) for n in end.split(','))

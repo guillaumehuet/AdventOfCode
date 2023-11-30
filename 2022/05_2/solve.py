@@ -1,8 +1,10 @@
+from pathlib import Path
+
 def readInput(file):
   header = []
   procedure = []
   inProcedures = False
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if not inProcedures:
       if line:
         header.append(line)

@@ -1,7 +1,9 @@
+from pathlib import Path
+
 from string import ascii_lowercase
 def readInput(file):
   paths = dict()
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     a, b = line.split('-')
     if a in paths:
       paths[a].append(b)

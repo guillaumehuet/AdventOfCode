@@ -36,9 +36,6 @@ def getConstellations(points):
 def firstStar(input):
   return len(getConstellations(input))
 
-def secondStar(input):
-  pass
-
 input = readInput('input')
 
 print("The first star is : {}".format(firstStar(input)))

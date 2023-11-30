@@ -1,7 +1,9 @@
+from pathlib import Path
+
 def readInput(file):
   firstLine = True
   image = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if firstLine:
       algorithm = tuple(True if c == '#' else False for c in line)
       firstLine = False

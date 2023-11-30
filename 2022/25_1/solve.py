@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return open(file).read().splitlines()
+  return Path(__file__).with_name(file).open('r').read().splitlines()
 
 snafuDigits = {'=' : -2, '-' : -1, '0' : 0, '1' : 1, '2' : 2}
 
@@ -28,13 +30,7 @@ def firstStar(input):
     result += snafuToDecimal(snafu)
   return decimalToSnafu(result)
 
-def secondStar(input):
-  pass
-
 input = readInput('input')
 
 print("The first star is : {}".format(firstStar(input)))
 # The first star is : 2==0=0===02--210---1
-
-print("The second star is : {}".format(secondStar(input)))
-# The second star is : 

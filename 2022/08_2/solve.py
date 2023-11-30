@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return tuple(tuple(int(i) for i in line) for line in open(file).read().splitlines())
+  return tuple(tuple(int(i) for i in line) for line in Path(__file__).with_name(file).open('r').read().splitlines())
 
 def firstStar(input):
   result = 0

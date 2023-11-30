@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  lines = open(file).read().splitlines()
+  lines = Path(__file__).with_name(file).open('r').read().splitlines()
   template = lines[0]
   rules = dict()
   for l in lines[2:]:

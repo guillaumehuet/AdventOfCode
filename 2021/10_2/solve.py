@@ -1,7 +1,8 @@
+from pathlib import Path
 from statistics import median
 
 def readInput(file):
-  return open(file).read().splitlines()
+  return Path(__file__).with_name(file).open('r').read().splitlines()
 
 def firstStar(input):
   score = 0

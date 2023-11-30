@@ -1,8 +1,9 @@
+from pathlib import Path
 from statistics import mean, median
 from math import floor, ceil
 
 def readInput(file):
-  return tuple(int(n) for n in open(file).read().splitlines()[0].split(','))
+  return tuple(int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()[0].split(','))
 
 def firstStar(input):
   med =  int(median(input))
@@ -32,4 +33,4 @@ print("The first star is : {}".format(firstStar(input)))
 # The first star is : 336701
 
 print("The second star is : {}".format(secondStar(input)))
-# The second star is : 
+# The second star is : 95167302

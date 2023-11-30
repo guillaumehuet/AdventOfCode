@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return tuple((line.split()[0], int(line.split()[1])) for line in open(file).read().splitlines())
+  return tuple((line.split()[0], int(line.split()[1])) for line in Path(__file__).with_name(file).open('r').read().splitlines())
 
 def dirDecode(dir):
   if dir == 'L':

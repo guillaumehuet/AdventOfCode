@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  x, y = open(file).read().splitlines()[0].split(':')[1].split(',')
+  x, y = Path(__file__).with_name(file).open('r').read().splitlines()[0].split(':')[1].split(',')
   x = tuple(int(n) for n in x.split('=')[1].split('..'))
   y = tuple(int(n) for n in y.split('=')[1].split('..'))
   return x, y

@@ -1,8 +1,10 @@
+from pathlib import Path
+
 def readInput(file):
   stillCoords = True
   coords = []
   folds = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if not line:
       stillCoords = False
     elif stillCoords:

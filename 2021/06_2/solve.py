@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(n) for n in open(file).read().splitlines()[0].split(',')]
+  return [int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()[0].split(',')]
 
 def generations(input, n):
   count = [0]*9

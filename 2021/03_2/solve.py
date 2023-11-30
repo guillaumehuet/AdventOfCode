@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return open(file).read().splitlines()
+  return Path(__file__).with_name(file).open('r').read().splitlines()
 
 def firstStar(input):
   commonBits = [0]*len(input[0])
@@ -46,7 +48,7 @@ def secondStar(input):
 input = readInput('input')
 
 print("The first star is : {}".format(firstStar(input)))
-# The first star is : 
+# The first star is : 4160394
 
 print("The second star is : {}".format(secondStar(input)))
-# The second star is : 
+# The second star is : 4125600

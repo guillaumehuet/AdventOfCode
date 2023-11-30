@@ -1,10 +1,12 @@
+from pathlib import Path
+
 directions = [(1, 0), (0, 1), (-1, 0), (0, -1)]
 
 def readInput(file):
   path = False
   result = dict()
   result['map'] = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if not line:
       path = True
     if path:

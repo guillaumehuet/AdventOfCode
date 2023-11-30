@@ -1,3 +1,4 @@
+from pathlib import Path
 from copy import deepcopy
 from math import lcm
 
@@ -11,7 +12,7 @@ def operation(old, operator, operand):
 
 def readInput(file):
   input = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if not line:
       continue
     key, value = line.split(':')

@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   blueprints = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     line = line.split()
     oreForOreRobot = int(line[6])
     oreForClayRobot = int(line[12])

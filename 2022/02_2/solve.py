@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   result = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     opp, strat = line.split()
     opp = ord(opp) - ord('A') + 1
     strat = ord(strat) - ord('X') + 1

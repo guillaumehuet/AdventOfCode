@@ -1,3 +1,4 @@
+from pathlib import Path
 from json import loads
 from itertools import zip_longest
 
@@ -47,7 +48,7 @@ class packet(list):
 
 def readInput(file):
   result = [[]]
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if not line:
       result.append([])
     else:
