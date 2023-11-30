@@ -1,7 +1,8 @@
+from pathlib import Path
 from copy import deepcopy
 
 def readInput(file):
-  return [[int(c) for c in line.split(',')] for line in open(file).read().splitlines()]
+  return [[int(c) for c in line.split(',')] for line in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def manhattan(a, b):
   return (abs(b[0] - a[0]) + abs(b[1] - a[1]))

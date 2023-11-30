@@ -1,3 +1,4 @@
+from pathlib import Path
 from collections import defaultdict
 
 def readInput(file):
@@ -6,7 +7,7 @@ def readInput(file):
   y = 0
   z = 0
   w = 0
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     x = 0
     for c in line:
       if c == '#':

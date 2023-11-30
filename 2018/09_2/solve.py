@@ -1,7 +1,8 @@
+from pathlib import Path
 from collections import deque
 
 def readInput(file):
-  return [int(c) for c in open(file).read().splitlines()[0].split() if c.isdigit()]
+  return [int(c) for c in Path(__file__).with_name(file).open('r').read().splitlines()[0].split() if c.isdigit()]
 
 def firstStar(input):
   numPlayers = input[0]

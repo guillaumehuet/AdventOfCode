@@ -1,7 +1,8 @@
+from pathlib import Path
 from itertools import permutations
 
 def readInput(file):
-  return [int(op) for op in open(file).read().split(',')]
+  return [int(op) for op in Path(__file__).with_name(file).open('r').read().split(',')]
 
 def runProgram(inputs, program, pc = 0):
   inputN = 0

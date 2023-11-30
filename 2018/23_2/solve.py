@@ -1,8 +1,10 @@
+from pathlib import Path
 import z3
+# pip install z3-solver
 
 def readInput(file):
   nanobots = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     pos, r = line.split('>')
     pos = tuple(int(c) for c in pos[5:].split(','))
     r = int(r[4:])

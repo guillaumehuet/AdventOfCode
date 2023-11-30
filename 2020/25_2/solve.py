@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(line) for line in open(file).read().splitlines()]
+  return [int(line) for line in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def findHandshake(cardTarget, doorTarget):
   targetRounds = 0

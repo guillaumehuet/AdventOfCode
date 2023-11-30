@@ -1,10 +1,11 @@
+from pathlib import Path
 from collections import defaultdict
 
 def readInput(file):
   maze = []
   letters = dict()
   y = 0
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     x = 0
     maze.append([])
     for c in line:

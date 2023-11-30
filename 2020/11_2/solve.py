@@ -1,7 +1,8 @@
+from pathlib import Path
 from copy import deepcopy
 
 def readInput(file):
-  return tuple(tuple(True if c == 'L' else False for c in line) for line in open(file).read().splitlines())
+  return tuple(tuple(True if c == 'L' else False for c in line) for line in Path(__file__).with_name(file).open('r').read().splitlines())
 
 def printState(seatLayout, seatState):
   for y in range(len(seatLayout)):

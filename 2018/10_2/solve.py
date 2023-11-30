@@ -1,9 +1,10 @@
+from pathlib import Path
 from copy import deepcopy
 
 gTime = 0
 
 def readInput(file):
-  return [[[int(coord) for coord in str.split('<')[1].split(',')] for str in line.split('>')[:-1]] for line in open(file).read().splitlines()]
+  return [[[int(coord) for coord in str.split('<')[1].split(',')] for str in line.split('>')[:-1]] for line in Path(__file__).with_name(file).open('r').read().splitlines()]
 
 def firstStar(input):
   global gTime

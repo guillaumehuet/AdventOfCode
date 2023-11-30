@@ -1,7 +1,8 @@
+from pathlib import Path
 from itertools import product
 
 def readInput(file):
-  lines = open(file).read().splitlines()
+  lines = Path(__file__).with_name(file).open('r').read().splitlines()
   initial = lines[0][15:]
   initial = tuple(True if c == '#' else False for c in initial)
   

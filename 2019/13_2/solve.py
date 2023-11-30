@@ -1,3 +1,4 @@
+from pathlib import Path
 from collections import defaultdict
 from math import inf
 
@@ -23,7 +24,7 @@ def sign(value):
 
 def readInput(file):
   result = defaultlist(lambda: 0)
-  result += [int(op) for op in open(file).read().split(',')]
+  result += [int(op) for op in Path(__file__).with_name(file).open('r').read().split(',')]
   return result
 
 def runProgram(inputs, program, pc = 0, relBase = 0):

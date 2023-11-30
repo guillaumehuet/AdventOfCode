@@ -1,3 +1,4 @@
+from pathlib import Path
 import heapq
 
 def readInput(file):
@@ -6,7 +7,7 @@ def readInput(file):
   keys2 = dict()
   doors = dict()
   y = 0
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     x = 0
     maze.append([])
     for c in line:

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 cardinal = [
   ( 0, -1), # North
   ( 1,  0), # East
@@ -82,7 +84,7 @@ def readInput(file):
   map = []
   carts = []
   y = 0
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     x = 0
     map.append([])
     for c in line:

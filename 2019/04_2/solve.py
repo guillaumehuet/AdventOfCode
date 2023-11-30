@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return [int(n) for n in open(file).read().splitlines()[0].split('-')]
+  return [int(n) for n in Path(__file__).with_name(file).open('r').read().splitlines()[0].split('-')]
 
 def hasDoubleDigits(digits):
   for d in range(len(digits) - 1):

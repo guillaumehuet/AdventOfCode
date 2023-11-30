@@ -1,3 +1,5 @@
+from pathlib import Path
+
 class defaultlist(list):
     def __init__(self, fx):
         self._fx = fx
@@ -13,7 +15,7 @@ class defaultlist(list):
 
 def readInput(file):
   result = defaultlist(lambda: 0)
-  result += [int(op) for op in open(file).read().split(',')]
+  result += [int(op) for op in Path(__file__).with_name(file).open('r').read().split(',')]
   return result
 
 def runProgram(inputs, program, pc = 0, relBase = 0):

@@ -1,7 +1,9 @@
+from pathlib import Path
+
 gridSize = 300
 
 def readInput(file):
-  return int(open(file).read().splitlines()[0])
+  return int(Path(__file__).with_name(file).open('r').read().splitlines()[0])
 
 def firstStar(input):
   grid = inputToGrid(input)

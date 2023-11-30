@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return open(file).read().splitlines()[0]
+  return Path(__file__).with_name(file).open('r').read().splitlines()[0]
 
 def initRecipes():
   # [recipesList, firstElfPtr, secondElfPtr]

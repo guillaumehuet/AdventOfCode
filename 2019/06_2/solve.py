@@ -1,5 +1,7 @@
+from pathlib import Path
+
 def readInput(file):
-  return sorted([tuple(orbit.split(')')) for orbit in open(file).read().splitlines()])
+  return sorted([tuple(orbit.split(')')) for orbit in Path(__file__).with_name(file).open('r').read().splitlines()])
 
 def processNode(node, count, orbitDict):
   if node in orbitDict:

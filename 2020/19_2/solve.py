@@ -1,9 +1,10 @@
+from pathlib import Path
 import re
 
 def readInput(file):
   rules = dict()
   messages = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if ':' in line:
       ruleN, rule = line.split(':')
       ruleN = int(ruleN)

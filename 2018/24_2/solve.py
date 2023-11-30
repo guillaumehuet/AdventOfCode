@@ -1,9 +1,10 @@
+from pathlib import Path
 from copy import deepcopy
 
 def readInput(file):
   armies = [[], []]
   attackOrder = []
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if line == "":
       continue
     if line == "Immune System:":

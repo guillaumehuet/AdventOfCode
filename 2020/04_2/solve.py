@@ -1,6 +1,8 @@
+from pathlib import Path
+
 def readInput(file):
   passportData = [dict()]
-  for line in open(file).read().splitlines():
+  for line in Path(__file__).with_name(file).open('r').read().splitlines():
     if len(line) == 0:
       passportData.append(dict())
     for fields in line.split():

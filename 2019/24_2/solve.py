@@ -1,7 +1,8 @@
+from pathlib import Path
 from collections import defaultdict
 
 def readInput(file):
-  return tuple(tuple(True if c == '#' else False for c in line) for line in open(file).read().splitlines())
+  return tuple(tuple(True if c == '#' else False for c in line) for line in Path(__file__).with_name(file).open('r').read().splitlines())
 
 def gridBiodiversityRating(grid):
   result = 0
