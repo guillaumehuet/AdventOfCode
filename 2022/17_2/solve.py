@@ -67,10 +67,33 @@ def simulateChamber(input, rockNumber, findRepeat=False):
   currDir = 0
   modRock = len(rockTypes)
   modDir = len(input)
+  configsMods = set()
+  configsHeights = dict()
+  prevTotalHeight = 0
+  confirmedHeight = 0
   while True:
     if findRepeat:
-      if currRock > 0 and currRock % modRock == 0 and currDir % modDir == 0:
-        return (currRock, len(chamber))
+      if (currRock % modRock, currDir % modDir) in configsMods:
+        initRock, initHeight = configsHeights[(currRock % modRock, currDir % modDir)]
+        cycleLength = currRock - initRock
+        cycleHeight = len(chamber) - initHeight
+        repeats = int((rockNumber-initRock)/cycleLength)
+        remainder = rockNumber - cycleLength*repeats
+        for c in configsHeights.values():
+          if c[0] == remainder:
+            remainderHeight = c[1]
+            break
+        totalHeight = remainderHeight + cycleHeight*repeats
+        if prevTotalHeight == totalHeight:
+          confirmedHeight += 1
+          if confirmedHeight == 100:
+            return totalHeight
+        else:
+          prevTotalHeight = 0
+          confirmedHeight = 0
+        prevTotalHeight = totalHeight
+      configsMods.add((currRock % modRock, currDir % modDir))
+      configsHeights[(currRock % modRock, currDir % modDir)] = (currRock, len(chamber))
     else:
       if currRock >= rockNumber:
         break
@@ -136,10 +159,10 @@ def simulateChamber(input, rockNumber, findRepeat=False):
 
 
 def firstStar(input):
-  return simulateChamber(input, 2022)
+  return simulateChamber(input, 1090)
 
 def secondStar(input):
-  pass
+  return simulateChamber(input, 1e12, True)
 
 input = readInput('input')
 
@@ -147,4 +170,4 @@ print("The first star is : {}".format(firstStar(input)))
 # The first star is : 3171
 
 print("The second star is : {}".format(secondStar(input)))
-# The second star is : 
+# The second star is : 1586627906921
